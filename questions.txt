@@ -39,3 +39,4 @@ Duplicates are initially allowed to be stored in the postgres database.
 The app_version is converted from string to int.
 SHA256 as choice of encryption function.
 Keeping null locale values as string `null` value.
+create_date is date when the etl is processed.
