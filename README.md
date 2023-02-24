@@ -19,8 +19,16 @@ Steps To run the Python script:
 
 1. Git clone this repo into a folder `fetch_project` and in terminal `cd ./fetch_project`
 2. Run `pip install -r requirements.txt`
-3. Run `docker compose up` to start the Postgres DB and the localstack AWS SQS service
-4. Run the python script in a terminal with `python3 etl_process.py`
+3. Configure aws profile if not previously:
+In terminal `aws configure --profile default`
+```
+AWS Access Key ID [None]: test
+AWS Secret Access Key [None]: test
+Default region name [None]: us-east-1
+Default output format [None]: text
+```
+4. Run `docker compose up` to start the Postgres DB and the localstack AWS SQS service
+5. Run the python script in a terminal with `python3 etl_process.py`
 
 Driving decisions:
 
