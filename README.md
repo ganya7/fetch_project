@@ -24,7 +24,7 @@ In terminal `aws configure --profile default`
 ```
 AWS Access Key ID [None]: test
 AWS Secret Access Key [None]: test
-Default region name [None]: us-east-1
+Default region name [None]: us-west-1
 Default output format [None]: text
 ```
 4. Run `docker compose up` to start the Postgres DB and the localstack AWS SQS service
