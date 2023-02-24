@@ -1,0 +1,41 @@
+Questions:
+
+1. How would you deploy this application in production?
+
+This app can be deployed to production using an AWS Lambda service to run the Python script
+Postgres database can be deployed on Amazon RDS service to have snapshot and replica of 
+the data being available. AWS Lambda will be able to autoscale as well if and when there 
+are bursts of increased load.
+
+2. What other components would you want to add to make this production ready?
+
+Add a table to store the erroneous input data and able to inspect and debug to resolve 
+the data.
+Performance tuning of the SQS batch size once there is a heuristic knowledge of frequency 
+and size of the input data becomes known.
+
+
+3. How can this application scale with a growing dataset?
+
+AWS Lambda service can used to scale this service as the dataset grows Lambda can 
+batch process the data from the queue and also use the concurrency to run same 
+instances of the Python script to be run on multiple batches. Further, with 
+scaling, Lambda also increases the number of processes that read the batches 
+and can process it simultaneously
+
+4. How can PII be recovered later on?
+
+PII can be recovered through the mechanism: a mapping table needs to be 
+maintained which stores the mapping between the PII data columns: ip, device_id 
+to masked_ip, masked_device_id. This table needs to be stored separately and needs to have a 
+access control restriction and only limited personnel with authorized access to be allowed 
+access to this table.
+
+5. What are the assumptions you made?
+
+The data is loaded into the Postgres database and the duplicates can be removed in the 
+database.
+Duplicates are initially allowed to be stored in the postgres database.
+The app_version is converted from string to int.
+SHA256 as choice of encryption function.
+Keeping null locale values as string `null` value.
